@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import mina1 from './data/mina1'
+import mina1 from '../data/mina1'
 
-class App extends Component {
+class Lessons extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,40 +32,10 @@ class App extends Component {
         });
     }
 
-    renderNav() {
-        let lessons = [];
-        let keys = Object.keys(mina1);
-        for (let i = 0; i < keys.length; i++) {
-            lessons.push(
-                <li
-                    key={i}
-                    className={`item ${i + 1 === this.state.lesson ? 'active' : ''}`}
-                    onClick={this.onChangeLesson.bind(null, i + 1)}
-                >
-                    Lesson {i + 1}
-                </li>
-            );
-        }
-
-        return (
-            <nav className="App-nav" id="nav">
-                <ul>
-                    <li>
-                        <span>Home</span>
-                    </li>
-                    <li>
-                        <span>Lesson {this.state.lesson}</span>
-                        <ul className="sub-menu">{lessons}</ul>
-                    </li>
-                </ul>
-            </nav>
-        )
-    }
-
-    renderBody() {
+    render() {
         let word = this.state.words[this.state.index];
         return (
-            <div className="App-body">
+            <div className="lesson">
                 <div className="kanji">{word[0] || word[1]}</div>
                 <div className="hira">{word[1] || ''}</div>
                 <div className="vnese">{this.state.showVnese ? word[2] : ''}</div>
@@ -77,15 +46,6 @@ class App extends Component {
             </div>
         );
     }
-
-    render() {
-        return (
-            <div className="App" id="mina">
-                {this.renderNav()}
-                {this.renderBody()}
-            </div>
-        );
-    }
 }
 
-export default App;
+export default Lessons;

@@ -17,6 +17,10 @@
     height: calc(100vh - 44px);
 }
 
+.lesson {
+    text-align: center;
+}
+
 .kanji {
     font-size: 84px;
     margin-bottom: 24px
@@ -49,11 +53,13 @@ nav > ul > li {
     height: 44px;
 }
 
-nav span {
+nav a {
     display: flex;
     height: 44px;
     padding: 0 24px;
     align-items: center;
+    color: #EEE;
+    text-decoration: none;
 }
 
 nav li:hover {
